@@ -1,0 +1,22 @@
+notification:
+  service: yahoo
+
+server:
+  port: 8899
+
+#Database
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/demo
+    username: zeecoder
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    open-in-view: false
+#    properties:
+#      hibernate:
+#        format_sql: true
