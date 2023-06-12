@@ -16,7 +16,7 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
 
     //Without @NamedEntityGraph
     /*@Override
-    @EntityGraph(attributePaths = {"items"})
+    @EntityGraph(attributePaths// = {"items"})
     List<Order> findAll();*/
 
 

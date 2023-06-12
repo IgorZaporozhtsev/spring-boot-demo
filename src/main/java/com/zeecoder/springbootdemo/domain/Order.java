@@ -13,7 +13,10 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name = "internal_order")
 @NamedEntityGraph(name = "Order.items",
-        attributeNodes = @NamedAttributeNode("items")
+        attributeNodes = {
+          //  @NamedAttributeNode("name"),
+            @NamedAttributeNode("items")
+}
 )
 public class Order {
     @Id

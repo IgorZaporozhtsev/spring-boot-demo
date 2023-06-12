@@ -18,9 +18,6 @@ public class OrderController {
     @GetMapping
     @Transactional
     public void getAll(){
-//        var order = orderRepository.getOne(1L);
-//        order.getItems().forEach( item -> System.out.println(item.getName()));
-
         var orders = orderRepository.findAll();
         for (Order order1 : orders) {
             if (order1.getItems().size() > 1) {

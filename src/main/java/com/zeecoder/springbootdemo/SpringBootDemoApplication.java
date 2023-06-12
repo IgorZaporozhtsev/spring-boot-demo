@@ -1,7 +1,6 @@
 package com.zeecoder.springbootdemo;
 
 import com.zeecoder.springbootdemo.conditional.NotificationSender;
-import com.zeecoder.springbootdemo.domain.Item;
 import com.zeecoder.springbootdemo.domain.Order;
 import com.zeecoder.springbootdemo.repository.ItemRepository;
 import com.zeecoder.springbootdemo.repository.OrderRepository;
@@ -11,7 +10,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootApplication
@@ -33,26 +31,17 @@ public class SpringBootDemoApplication {
             //prototypeDemo();
             //conditionalOnPropertyDemo();
 
-
-            //extracted();
+            //nPlusOneSelect();
 
         };
     }
 
-    @Transactional
-    public void extracted() {
+    public void nPlusOneSelect() {
         var orders = orderRepository.findAll();
-        for (Order order1 : orders) {
-            if (order1.getItems().size() > 1) {
-                System.out.println(" ------------- check Query");
-            }
+        for (Order order : orders) {
+            System.out.println(order.getItems());
         }
 
-       /* var items = itemRepository.findAll();
-        for (Item item : items) {
-            item.getOrder().getName();
-            item.getName();
-        }*/
     }
 
     private void prototypeDemo() {
