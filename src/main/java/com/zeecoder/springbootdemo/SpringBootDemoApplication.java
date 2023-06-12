@@ -41,7 +41,7 @@ public class SpringBootDemoApplication {
 
     @Transactional
     public void extracted() {
-        var orders = orderRepository.findAll();
+        var orders = orderRepository.findAllCustom();
         for (Order order1 : orders) {
             if (order1.getItems().size() > 1) {
                 System.out.println(" ------------- check Query");

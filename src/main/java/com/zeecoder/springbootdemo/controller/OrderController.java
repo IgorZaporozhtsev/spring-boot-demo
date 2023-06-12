@@ -21,7 +21,7 @@ public class OrderController {
 //        var order = orderRepository.getOne(1L);
 //        order.getItems().forEach( item -> System.out.println(item.getName()));
 
-        var orders = orderRepository.findAll();
+        var orders = orderRepository.findAllCustom();
         for (Order order1 : orders) {
             if (order1.getItems().size() > 1) {
                 System.out.println(" -------------  plus Query");
