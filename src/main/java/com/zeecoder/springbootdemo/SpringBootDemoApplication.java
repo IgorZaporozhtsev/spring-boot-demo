@@ -1,8 +1,5 @@
 package com.zeecoder.springbootdemo;
 
-import com.zeecoder.springbootdemo.domain.Order;
-import com.zeecoder.springbootdemo.repository.ItemRepository;
-import com.zeecoder.springbootdemo.repository.OrderRepository;
 import com.zeecoder.springbootdemo.scope_prototype.Customer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
@@ -14,8 +11,6 @@ import org.springframework.context.annotation.Bean;
 @RequiredArgsConstructor
 public class SpringBootDemoApplication {
 
-    private final OrderRepository orderRepository;
-    private final ItemRepository itemRepository;
     private final Customer customer;
 
     public static void main(String[] args) {
@@ -25,18 +20,8 @@ public class SpringBootDemoApplication {
     @Bean
     CommandLineRunner commandLineRunner(){
         return args -> {
-            //prototypeDemo();
-            //nPlusOneSelect();
-
+            prototypeDemo();
         };
-    }
-
-    public void nPlusOneSelect() {
-        var orders = orderRepository.findAll();
-        for (Order order : orders) {
-            System.out.println(order.getItems());
-        }
-
     }
 
     private void prototypeDemo() {
